@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chewzy Design System - Premium Food Discovery Platform */
+
+@layer base {
+  :root {
+    /* Premium color palette inspired by fine dining */
+    --background: 43 100% 96%; /* Soft cream base */
+    --foreground: 222 84% 13%; /* Deep slate for text */
+
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 222 84% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 13%;
+
+    /* Deep maroon primary - sophisticated restaurant vibes */
+    --primary: 333 61% 32%; /* #831843 converted to HSL */
+    --primary-foreground: 43 100% 96%;
+
+    /* Warm coral secondary */
+    --secondary: 353 95% 82%; /* #fda4af converted to HSL */
+    --secondary-foreground: 333 61% 32%;
+
+    --muted: 43 100% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Olive green accent */
+    --accent: 84 61% 35%; /* #65a30d converted to HSL */
+    --accent-foreground: 43 100% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 43 100% 96%;
+
+    --border: 43 60% 88%;
+    --input: 43 60% 88%;
+    --ring: 333 61% 32%;
+
+    --radius: 0.75rem; /* Softer, more premium feel */
+
+    /* Custom Chewzy tokens */
+    --maroon: 333 61% 32%;
+    --maroon-light: 333 61% 45%;
+    --coral: 353 95% 82%;
+    --coral-dark: 353 95% 75%;
+    --cream: 43 100% 96%;
+    --cream-dark: 43 80% 90%;
+    --slate: 222 84% 13%;
+    --slate-light: 222 84% 25%;
+    --olive: 84 61% 35%;
+    --olive-light: 84 61% 45%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--maroon)) 0%, hsl(var(--maroon-light)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--cream)) 0%, hsl(var(--cream-dark)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(var(--olive)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--maroon) / 0.1);
+    --shadow-card: 0 8px 30px -4px hsl(var(--maroon) / 0.15);
+    --shadow-elegant: 0 20px 40px -8px hsl(var(--maroon) / 0.2);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Hero section with gradient */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Card with elegant shadow */
+  .card-elegant {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+
+  .card-elegant:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Button ripple effect */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-ripple:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+  }
+
+  .btn-ripple:active:before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Smooth fade in animation */
+  .fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.1s;
+  }
+
+  .fade-in-delay-2 {
+    animation-delay: 0.2s;
+  }
+
+  .fade-in-delay-3 {
+    animation-delay: 0.3s;
+  }
+
+  /* Floating label input */
+  .floating-input {
+    @apply relative;
+  }
+
+  .floating-input input:focus + label,
+  .floating-input input:not(:placeholder-shown) + label {
+    @apply -translate-y-6 scale-75 text-primary;
+  }
+
+  .floating-input label {
+    @apply absolute left-3 top-3 transition-all duration-200 pointer-events-none text-muted-foreground;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
