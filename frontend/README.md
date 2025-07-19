@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# Chewzy 🍽️
 
-## Project info
+Chewzy is a modern restaurant discovery and review platform built with React, TypeScript, and Supabase. The platform helps users explore local restaurants, read reviews, and make informed dining decisions.
 
-**URL**: https://lovable.dev/projects/c38dee28-561e-480f-81eb-87feeb6a6c68
+## 🚀 Features
 
-## How can I edit this code?
+- **Restaurant Discovery**: Browse and explore local restaurants
+- **Detailed Restaurant Pages**: View comprehensive information about each restaurant
+- **Reviews and Ratings**: Read and submit restaurant reviews
+- **Modern UI**: Built with Shadcn UI components for a sleek user experience
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Contact Form**: Easy way to get in touch with feedback or inquiries
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend Framework**: React with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn UI
+- **Database & Backend**: Supabase
+- **Type Safety**: TypeScript
+- **State Management**: React Hooks
+- **Form Handling**: React Hook Form
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c38dee28-561e-480f-81eb-87feeb6a6c68) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone the repository:
+```bash
+git clone https://github.com/Vrajesh-Sharma/Chewzy.git
+cd Chewzy/frontend
+```
 
-**Use your preferred IDE**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. Set up environment variables:
+```bash
+cp .env.example .env
+```
+Then edit `.env` with your Supabase credentials.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Project Structure
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+frontend/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── integrations/  # External service integrations
+│   ├── hooks/         # Custom React hooks
+│   ├── lib/          # Utility functions
+│   └── assets/       # Static assets
+```
 
-**Use GitHub Codespaces**
+## 🔧 Available Scripts
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## What technologies are used for this project?
+## 🤝 Contributing
 
-This project is built with:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📝 Environment Variables
 
-## How can I deploy this project?
+The following environment variables are required:
 
-Simply open [Lovable](https://lovable.dev/projects/c38dee28-561e-480f-81eb-87feeb6a6c68) and click on Share -> Publish.
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 📄 Author
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Made with love by **Vrajesh Sharma**
