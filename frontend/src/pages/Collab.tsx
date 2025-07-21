@@ -24,7 +24,7 @@ const Collab = () => {
     },
     {
       name: 'Pro',
-      price: '$29/month',
+      price: '₹299/month',
       description: 'For growing restaurants',
       icon: <Zap className="h-8 w-8" />,
       features: [
@@ -42,7 +42,7 @@ const Collab = () => {
     },
     {
       name: 'Premium',
-      price: '$59/month',
+      price: '₹599/month',
       description: 'For established restaurants',
       icon: <Crown className="h-8 w-8" />,
       features: [
@@ -52,7 +52,6 @@ const Collab = () => {
         'Marketing campaign tools',
         'Dedicated account manager',
         'API access',
-        'White-label solutions',
         '24/7 premium support'
       ],
       buttonText: 'Activate Premium',

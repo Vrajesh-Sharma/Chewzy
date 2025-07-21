@@ -1,4 +1,4 @@
-import { Heart, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Heart, Instagram, Github, Linkedin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -107,22 +107,22 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex justify-center sm:justify-start space-x-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/its_vrajesh_sharma" 
                 className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors duration-200"
               >
                 <Instagram size={18} />
               </a>
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/vrajesharma-7-dsa" 
                 className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors duration-200"
               >
-                <Twitter size={18} />
+                <Linkedin size={18} />
               </a>
               <a 
-                href="#" 
+                href="https://github.com/Vrajesh-Sharma" 
                 className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary-foreground/20 transition-colors duration-200"
               >
-                <Facebook size={18} />
+                <Github size={18} />
               </a>
             </div>
           </div>
