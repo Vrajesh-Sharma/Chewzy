@@ -128,7 +128,7 @@ const ExploreSection = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredRestaurants.map((restaurant, index) => (
             <div 
               key={restaurant.id} 
@@ -223,7 +223,7 @@ const ExploreSection = () => {
 
                 <div className="mb-6">
                   <p className="text-muted-foreground mb-4">{selectedRestaurant.description}</p>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="font-semibold text-primary">Phone:</span> {selectedRestaurant.phone}
                     </div>

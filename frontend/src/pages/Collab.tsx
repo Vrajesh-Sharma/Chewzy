@@ -3,6 +3,7 @@ import { Check, Star, Zap, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer'; // Added import for Footer
 
 const Collab = () => {
   const plans = [
@@ -84,7 +85,7 @@ const Collab = () => {
           </div>
 
           {/* Pricing Plans */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {plans.map((plan, index) => (
               <div 
                 key={plan.name}
@@ -156,7 +157,7 @@ const Collab = () => {
           </div>
 
           {/* Benefits Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 fade-in fade-in-delay-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 fade-in fade-in-delay-3">
             <div className="text-center">
               <div className="text-3xl font-bold text-primary mb-2">500+</div>
               <p className="text-muted-foreground">Partner Restaurants</p>
@@ -192,6 +193,8 @@ const Collab = () => {
           </div>
         </div>
       </div>
+      {/* Added Footer */}
+      <Footer />
     </div>
   );
 };

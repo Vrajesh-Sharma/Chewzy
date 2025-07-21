@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const Explore = () => {
   const [restaurants, setRestaurants] = useState<any[]>([]);
@@ -130,9 +131,9 @@ const Explore = () => {
           </div>
 
           {/* Filters */}
-          <div className="mb-8 space-y-4 md:space-y-0 md:flex md:items-center md:gap-4 fade-in fade-in-delay-1">
+          <div className="mb-8 space-y-4 sm:space-y-0 sm:flex sm:flex-wrap sm:items-center sm:gap-4 fade-in fade-in-delay-1">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative flex-1 w-full sm:max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search restaurants..."
@@ -144,7 +145,7 @@ const Explore = () => {
 
             {/* Area Filter */}
             <Select value={selectedArea} onValueChange={setSelectedArea}>
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-full md:w-48">
                 <SelectValue placeholder="Select Area" />
               </SelectTrigger>
               <SelectContent>
@@ -157,7 +158,7 @@ const Explore = () => {
 
             {/* Rating Filter */}
             <Select value={minRating} onValueChange={setMinRating}>
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-full md:w-48">
                 <SelectValue placeholder="Min Rating" />
               </SelectTrigger>
               <SelectContent>
@@ -172,7 +173,7 @@ const Explore = () => {
 
             {/* Sort */}
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48">
+              <SelectTrigger className="w-full md:w-48">
                 <SelectValue placeholder="Sort By" />
               </SelectTrigger>
               <SelectContent>
@@ -189,7 +190,7 @@ const Explore = () => {
           </div>
 
           {/* Restaurant Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredRestaurants.map((restaurant, index) => {
               const avgRating = calculateAverageRating(restaurant.id);
               const reviewCount = getReviewCount(restaurant.id);
@@ -266,6 +267,8 @@ const Explore = () => {
           )}
         </div>
       </div>
+      {/* Added Footer */}
+      <Footer />
     </div>
   );
 };

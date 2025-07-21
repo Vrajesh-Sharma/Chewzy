@@ -8,6 +8,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import ReviewCard from '@/components/ReviewCard';
+import Footer from '@/components/Footer'; // Added import for Footer
 
 const RestaurantDetail = () => {
   const { slug } = useParams();
@@ -166,12 +167,24 @@ const RestaurantDetail = () => {
               <h2 className="text-2xl font-heading font-semibold text-primary mb-4">Gallery</h2>
               <div className="relative w-full">
                 <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
-                  <img 
-                    src={restaurant.images[selectedImageIndex] || '/placeholder.svg'}
-                    alt={`${restaurant.name} - Image ${selectedImageIndex + 1}`}
-                    className="w-full h-full object-cover cursor-pointer transition-transform hover:scale-105"
-                    onClick={() => setSelectedImageIndex(selectedImageIndex)}
-                  />
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <img 
+                        src={restaurant.images[selectedImageIndex] || '/placeholder.svg'}
+                        alt={`${restaurant.name} - Image ${selectedImageIndex + 1}`}
+                        className="w-full h-full object-cover cursor-pointer transition-transform hover:scale-105"
+                      />
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+                      <div className="relative">
+                        <img 
+                          src={restaurant.images[selectedImageIndex] || '/placeholder.svg'}
+                          alt={`${restaurant.name} - Image ${selectedImageIndex + 1}`}
+                          className="w-full h-auto max-h-[90vh] object-contain"
+                        />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                   
                   {/* Navigation Arrows */}
                   {restaurant.images.length > 1 && (
@@ -217,30 +230,14 @@ const RestaurantDetail = () => {
                     ))}
                   </div>
                 )}
-
-                {/* Lightbox Dialog */}
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="absolute inset-0 cursor-pointer" />
-                  </DialogTrigger>
-                  <DialogContent className="max-w-4xl max-h-[90vh] p-0">
-                    <div className="relative">
-                      <img 
-                        src={restaurant.images[selectedImageIndex] || '/placeholder.svg'}
-                        alt={`${restaurant.name} - Image ${selectedImageIndex + 1}`}
-                        className="w-full h-auto max-h-[90vh] object-contain"
-                      />
-                    </div>
-                  </DialogContent>
-                </Dialog>
               </div>
             </div>
           )}
 
           {/* Restaurant Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {/* Details */}
-            <div className="lg:col-span-2 space-y-6 fade-in fade-in-delay-2">
+            <div className="md:col-span-1 lg:col-span-2 space-y-6 fade-in fade-in-delay-2">
               <div className="card-elegant p-6 rounded-xl">
                 <h3 className="text-xl font-heading font-semibold text-primary mb-4">Details</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -335,6 +332,8 @@ const RestaurantDetail = () => {
           </div>
         </div>
       </div>
+      {/* Added Footer */}
+      <Footer />
     </div>
   );
 };

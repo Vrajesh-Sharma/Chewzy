@@ -146,7 +146,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="fade-in fade-in-delay-1">
             <div className="card-elegant p-8 rounded-2xl">

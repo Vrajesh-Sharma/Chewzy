@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer'; // Added import for Footer
 
 const Contact = () => {
   const location = useLocation();
@@ -124,13 +125,13 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="fade-in fade-in-delay-1">
               <h2 className="text-2xl font-heading font-semibold text-primary mb-6">
                 Let's Connect
               </h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground mb-8 text-base">
                 Whether you're a restaurant owner looking to join our platform or a food lover with feedback, 
                 we're here to help. Reach out through any of the methods below.
               </p>
@@ -279,6 +280,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {/* Added Footer */}
+      <Footer />
     </div>
   );
 };

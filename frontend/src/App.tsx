@@ -9,8 +9,20 @@ import RestaurantDetail from "./pages/RestaurantDetail";
 import Collab from "./pages/Collab";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const queryClient = new QueryClient();
+
+const ScrollToTopOnNavigate = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -18,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTopOnNavigate />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/explore" element={<Explore />} />
