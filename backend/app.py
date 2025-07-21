@@ -12,6 +12,12 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
+# ✅ Health Check Endpoint
+@app.route('/alive', methods=['GET'])
+def alive():
+    return jsonify({"status": "ok"}), 200
+
+# ✅ AI Response Endpoint
 @app.route('/AIResponse/contactReply', methods=['POST'])
 def send_ai_email():
     try:
