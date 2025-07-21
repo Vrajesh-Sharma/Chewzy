@@ -18,6 +18,9 @@ const RestaurantDetail = () => {
   const [loading, setLoading] = useState(!restaurant);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const { toast } = useToast();
+  const [reviewerName, setReviewerName] = useState('');
+  const [reviewComment, setReviewComment] = useState('');
+  const [reviewRating, setReviewRating] = useState(0);
 
   useEffect(() => {
     if (!restaurant && slug) {
@@ -58,6 +61,49 @@ const RestaurantDetail = () => {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const addReview = async () => {
+    if (!restaurant || !reviewerName || !reviewComment || reviewRating === 0) {
+      toast({
+        title: "Error",
+        description: "Please fill in all review fields (name, comment, and rating).",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from('reviews')
+        .insert({
+          restaurant_id: restaurant.id,
+          user_name: reviewerName,
+          comment: reviewComment,
+          rating: reviewRating,
+        })
+        .select();
+
+      if (error) throw error;
+
+      if (data) {
+        setReviews(prev => [data[0], ...prev]);
+        setReviewerName('');
+        setReviewComment('');
+        setReviewRating(0);
+        toast({
+          title: "Review Added!",
+          description: "Your review has been successfully submitted.",
+        });
+      }
+    } catch (error) {
+      console.error('Error adding review:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit review.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -307,6 +353,48 @@ const RestaurantDetail = () => {
                 <p className="text-muted-foreground">
                   Based on {reviews.length} review{reviews.length !== 1 ? 's' : ''}
                 </p>
+              </div>
+              {/* Add Review Form */}
+              <div className="card-elegant p-6 rounded-xl mt-6">
+                <h3 className="text-xl font-heading font-semibold text-primary mb-4">Add Your Review</h3>
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="reviewerName" className="block text-sm font-medium text-foreground mb-1">Your Name</label>
+                    <input
+                      type="text"
+                      id="reviewerName"
+                      value={reviewerName}
+                      onChange={(e) => setReviewerName(e.target.value)}
+                      placeholder="Enter your name"
+                      className="input-field"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="reviewComment" className="block text-sm font-medium text-foreground mb-1">Your Review</label>
+                    <textarea
+                      id="reviewComment"
+                      value={reviewComment}
+                      onChange={(e) => setReviewComment(e.target.value)}
+                      placeholder="Share your experience..."
+                      rows={4}
+                      className="input-field"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-1">Rating</label>
+                    <div className="flex items-center gap-1">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          size={24}
+                          className={`cursor-pointer ${star <= reviewRating ? 'fill-current text-yellow-500' : 'text-muted-foreground'}`}
+                          onClick={() => setReviewRating(star)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <Button onClick={addReview} className="w-full">Submit Review</Button>
+                </div>
               </div>
             </div>
           </div>
