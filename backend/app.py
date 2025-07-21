@@ -18,9 +18,10 @@ def send_ai_email():
         data = request.json
         email = data.get('email')
         text = data.get('text')
+        subject = data.get('subject') or "Thanks for Contacting Chewzy"
 
-        if not email or not text:
-            return jsonify({'error': 'Missing email or text'}), 400
+        if not email or not text or not subject:
+            return jsonify({'error': 'Missing email, subject, or text'}), 400
 
         sender_email = os.getenv('EMAIL_ADDRESS')
         sender_password = os.getenv('EMAIL_PASSWORD')
@@ -31,7 +32,7 @@ def send_ai_email():
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = email
-        msg['Subject'] = "Thanks for Contacting Chewzy"
+        msg['Subject'] = subject
         msg.attach(MIMEText(text, 'plain'))
 
         # Send email using Gmail SMTP
