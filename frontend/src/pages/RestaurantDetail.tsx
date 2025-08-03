@@ -187,22 +187,35 @@ const RestaurantDetail = () => {
                     <MapPin size={16} className="mr-1" />
                     {restaurant.area}
                   </span>
-                  <span className="flex items-center">
-                    <Star size={16} className="mr-1 fill-current text-yellow-500" />
-                    {avgRating.toFixed(1)} ({reviews.length} reviews)
-                  </span>
                 </div>
                 <p className="text-muted-foreground max-w-2xl">
                   {restaurant.description}
                 </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {restaurant.tags?.map((tag: string) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
               
-              <div className="flex flex-wrap gap-2">
-                {restaurant.tags?.map((tag: string) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
+              <div className="card-elegant p-6 rounded-xl text-center lg:w-48 h-full flex flex-col justify-center">
+                <div className="text-3xl font-bold text-primary mb-2">
+                  {avgRating.toFixed(1)}
+                </div>
+                <div className="flex justify-center mb-2">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star 
+                      key={star}
+                      size={20}
+                      className={`${star <= Math.round(avgRating) ? 'fill-current text-yellow-500' : 'text-muted-foreground'}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-muted-foreground">
+                  Based on {reviews.length} review{reviews.length !== 1 ? 's' : ''}
+                </p>
               </div>
             </div>
           </div>
@@ -337,23 +350,6 @@ const RestaurantDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6 fade-in fade-in-delay-3">
-              <div className="card-elegant p-6 rounded-xl text-center">
-                <div className="text-3xl font-bold text-primary mb-2">
-                  {avgRating.toFixed(1)}
-                </div>
-                <div className="flex justify-center mb-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star 
-                      key={star}
-                      size={20}
-                      className={`${star <= Math.round(avgRating) ? 'fill-current text-yellow-500' : 'text-muted-foreground'}`}
-                    />
-                  ))}
-                </div>
-                <p className="text-muted-foreground">
-                  Based on {reviews.length} review{reviews.length !== 1 ? 's' : ''}
-                </p>
-              </div>
               {/* Add Review Form */}
               <div className="card-elegant p-6 rounded-xl mt-6">
                 <h3 className="text-xl font-heading font-semibold text-primary mb-4">Add Your Review</h3>
