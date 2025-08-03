@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { Star, MapPin, Phone, Clock, DollarSign, ArrowLeft, X, Heart, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, MapPin, Phone, Clock, IndianRupee, ArrowLeft, X, Heart, MessageCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
@@ -301,7 +301,7 @@ const RestaurantDetail = () => {
                   )}
                   {restaurant.price_range && (
                     <div className="flex items-center">
-                      <DollarSign size={16} className="mr-2 text-muted-foreground" />
+                      <IndianRupee size={16} className="mr-2 text-muted-foreground" />
                       <span>{restaurant.price_range}</span>
                     </div>
                   )}
