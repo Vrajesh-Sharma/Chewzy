@@ -37,12 +37,8 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-heading font-bold text-primary">
-            <img 
-              src="/logo.png" 
-              alt="Chewzy Logo" 
-              className="h-20 w-auto" // Adjust height and width as needed
-            />
+          <Link to="/" className="h-full flex items-center py-3"> {/* Use padding for spacing */}
+            <img src="/logo.png" alt="Chewzy Logo" className="h-full w-full" />
           </Link>
 
           {/* Desktop Navigation */}
