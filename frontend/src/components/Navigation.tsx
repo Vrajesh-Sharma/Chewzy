@@ -38,7 +38,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="text-2xl font-heading font-bold text-primary">
-            Chewzy
+            <img 
+              src="/logo.png" 
+              alt="Chewzy Logo" 
+              className="h-20 w-auto" // Adjust height and width as needed
+            />
           </Link>
 
           {/* Desktop Navigation */}
