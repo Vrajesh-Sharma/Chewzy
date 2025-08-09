@@ -21,6 +21,7 @@ const RestaurantDetail = () => {
   const [reviewerName, setReviewerName] = useState('');
   const [reviewComment, setReviewComment] = useState('');
   const [reviewRating, setReviewRating] = useState(0);
+  const [deliveryFee, setDeliveryFee] = useState<number | null>(null);
 
   useEffect(() => {
     if (!restaurant && slug) {
@@ -163,6 +164,12 @@ const RestaurantDetail = () => {
 
   const avgRating = calculateAverageRating();
 
+  const handleCheckDeliveryCharges = () => {
+    const min = 30, max = 40;
+    const fee = Math.floor(Math.random() * (max - min + 1)) + min;
+    setDeliveryFee(fee);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -199,7 +206,7 @@ const RestaurantDetail = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="card-elegant p-6 rounded-xl text-center lg:w-48 h-full flex flex-col justify-center">
                 <div className="text-3xl font-bold text-primary mb-2">
                   {avgRating.toFixed(1)}
@@ -331,6 +338,19 @@ const RestaurantDetail = () => {
                     </p>
                   </div>
                 )}
+                  <div className="mt-4 pt-4 border-t flex items-center gap-2">
+                  <Button
+                    onClick={handleCheckDeliveryCharges}
+                    className="h-7 px-3 text-xs rounded-full bg-pink-500 hover:bg-pink-600 text-white shadow-sm transition-all"
+                  >
+                    Check Delivery Charges
+                  </Button>
+                  {deliveryFee !== null && (
+                    <span className="text-xs font-medium text-gray-700 bg-gray-100 px-2 py-0.5 rounded-full shadow-sm">
+                      ₹{deliveryFee} per order
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Features */}
